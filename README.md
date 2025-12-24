@@ -2,9 +2,19 @@
 
 这是一个简单的 Web 前端应用，用于预览 3D Gaussian Splats (.ply) 文件。
 
+# 警告
+
+**该项目全部代码都为ai编写 请先自行研究**
+
 ## Demo
 
 https://ml-sharp-viewer.stmtc.workers.dev/
+
+## 使用方法
+
+使用 https://github.com/apple/ml-sharp 生成ply文件
+
+使用该项目预览
 
 ## 功能
 - 支持加载本地 .ply / .splat 文件

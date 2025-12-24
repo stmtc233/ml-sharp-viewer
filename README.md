@@ -2,6 +2,10 @@
 
 这是一个简单的 Web 前端应用，用于预览 3D Gaussian Splats (.ply) 文件。
 
+## Demo
+
+https://ml-sharp-viewer.stmtc.workers.dev/
+
 ## 功能
 - 支持加载本地 .ply / .splat 文件
 - 自动转换坐标系 (OpenCV -> Three.js)

@@ -9,12 +9,16 @@ const resetBtn = document.getElementById('resetViewBtn');
 const zAxisSlider = document.getElementById('zAxisSlider');
 const zAxisValue = document.getElementById('zAxisValue');
 const toggleUiBtn = document.getElementById('toggleUiBtn');
+const closeUiBtn = document.getElementById('closeUiBtn');
 const uiPanel = document.getElementById('ui');
 
 // 切换菜单显示/隐藏
-toggleUiBtn.addEventListener('click', () => {
+const toggleUi = () => {
     uiPanel.classList.toggle('hidden');
-});
+};
+
+toggleUiBtn.addEventListener('click', toggleUi);
+closeUiBtn.addEventListener('click', toggleUi);
 
 // 初始化 Viewer
 // sharedMemoryForWorkers: false 为了兼容性更强，如果需要更高性能可以开启并配置服务器Headers

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DGS 预览器</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #202020; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; }
+        #container { width: 100vw; height: 100vh; }
+        #ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(40, 40, 40, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid #444;
+            min-width: 250px;
+        }
+        h3 { margin: 0; color: #fff; font-size: 1.2rem; }
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        label { font-size: 0.9rem; color: #aaa; }
+        input[type="file"] {
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+        #loading {
+            display: none;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .instructions {
+            font-size: 0.8rem;
+            color: #888;
+            line-height: 1.4;
+            border-top: 1px solid #444;
+            padding-top: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #106ebe;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h3>3DGS 预览工具</h3>
+        
+        <div class="control-group">
+            <label>加载 .ply 文件</label>
+            <input type="file" id="fileInput" accept=".ply,.splat" />
+        </div>
+
+        <div id="loading">正在处理场景...</div>
+
+        <div class="control-group">
+            <label for="zAxisSlider">旋转中心 Z 轴调整: <span id="zAxisValue">0</span></label>
+            <input type="range" id="zAxisSlider" min="-5" max="5" step="0.1" value="0">
+        </div>
+
+        <div class="control-group">
+            <button id="resetViewBtn">重置视角</button>
+            <button id="gyroBtn">开启陀螺仪控制</button>
+        </div>
+
+        <div class="instructions">
+            <strong>操作指南:</strong><br>
+            • 左键拖拽: 旋转视角<br>
+            • 右键拖拽: 平移场景<br>
+            • 滚轮: 缩放<br>
+            <br>
+            <em>注: 视角已限制以优化 2.5D 内容展示<br>
+            已自动应用坐标系转换 (OpenCV -> Three.js)</em>
+        </div>
+    </div>
+    <div id="container"></div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
